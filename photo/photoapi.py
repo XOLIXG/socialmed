@@ -16,14 +16,13 @@ def save_user_photo(user_id: int):
     new_photo = post_new_photo_db(user_id, file.filename)
     return {'status': 1, 'message': 'Photo added'}
 
-
+d
 @photo_bp.route('/<int:photo_id>', methods=['POST'])
 def get_exact_photo(photo_id: int):
     exact_photo = get_exact_photo_db(photo_id)
     if exact_photo:
         return {'status': 1, 'message': exact_photo}
     return {'status': 0, 'message': 'User not found'}
-y
 
 @photo_bp.route('/<int:user_id>/<int:photo_id>',  methods=['DELETE'])
 def delete_photo(user_id: int, photo_id: int):
